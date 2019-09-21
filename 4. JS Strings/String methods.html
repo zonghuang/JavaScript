@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串方法</title>
+</head>
+<body>
+<script>
+    // 在 javascript 中，一切东西都可以被当作对象。例如我们创建一个字符串。
+    var string = 'This is my string';
+
+    // 获得字符串的长度
+    var browserType = 'mozilla';
+    browserType.length;
+
+    // 检索特定字符串字符
+    browserType[0];
+    browserType[browserType.length-1];
+
+    /** 在字符串中查找子字符串并提取它 */
+    browserType.indexOf('zilla');
+    // 当在主字符串中找不到子字符串时返回-1
+    browserType.indexOf('vanilla');
+    // 使用它来查找不包含子串“mozilla”的所有字符串实例，或者如果使用否定运算符，请执行以下操作
+    if(browserType.indexOf('mozilla') !== -1) {
+        // do stuff with the string
+    }
+    // 当你知道字符串中的子字符串开始的位置，以及想要结束的字符时，slice()可以用来提取它
+    browserType.slice(0,3);
+    // 如果您知道要在某个字符之后提取字符串中的所有剩余字符，则不必包含第二个参数，而只需要包含要从中提取的字符位置 字符串中的其余字符。
+    browserType.slice(2);
+    // 这返回“zilla” - 这是因为2的字符位置是字母z，并且因为没有包含第二个参数，所以返回的子字符串是字符串中的所有剩余字符。
+
+    // 转换大小写
+    var radData = 'My NaMe Is MuD';
+    radData.toLowerCase();
+    radData.toUpperCase();
+
+    // 替换字符串的某部分
+    browserType.replace('moz','van');
+
+</script>
+</body>
+</html>

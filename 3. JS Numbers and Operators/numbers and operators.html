@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 数字和操作符</title>
+</head>
+<body>
+<script>
+    // 数字类型 —— number
+    var myInt = 5;
+    var myFloat = 6.667;
+    myInt;
+    myFloat;
+    typeof myInt;
+    typeof myFloat;
+
+    // 算数运算符
+    6 + 9;
+    20 - 15;
+    3 * 7;
+    10 / 5;
+    8 % 3;
+
+    var num1 = 10;
+    var num2 = 50;
+    9 * num1;
+    num2 / num1;
+
+    5 + 10 * 3;
+    num2 % 9 * num1;
+    num2 + num1 / 8 + 2;
+
+    // 运算符优先级
+    num2 + num1 / 8 + 2;
+    (num2 + num1) / (8 + 2);
+
+    // 递增和递减运算符
+    // 3++; // 将返回错误 —— 为变量赋值一个新的更新值，而不是对该值进行操作。
+    var num1 = 4;
+    num1++;
+    var num2 = 6;
+    num2--;
+    num2;
+
+    var num1 = 1;
+    ++num1;
+
+    var num2 = 2;
+    --num2;
+
+    var num3 = 3;
+    num3++;
+    num3;
+
+    var num4 = 4;
+    num4--;
+    num4;
+
+    // 操作运算符
+    var x = 3;
+    var y = 4;
+    x = y;
+
+    x = 3;
+    x += 4;
+
+    x = 6;
+    x -= 3;
+
+    x = 2;
+    x *= 3;
+
+    x = 10;
+    x /= 5;
+
+    // 比较运算符
+    5 === 2 + 4;
+    5 !== 2 + 3;
+    10 < 6;
+    3 <= 2;
+    5 >= 4;
+
+    // 三元运算符
+    var greeting = (isBirthday) ? 'Happy birthday Mrs. Smith — we hope you have a great day!' : 'Good morning Mrs. Smith.';
+
+</script>
+</body>
+</html>

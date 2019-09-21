@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Canvas paths</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<canvas class="myCanvas">
+    <p>Add suitable fallback here.</p>
+</canvas>
+
+<script>
+
+    var canvas = document.querySelector('.myCanvas');
+    var width = canvas.width = window.innerWidth;
+    var height = canvas.height = window.innerHeight;
+    var ctx = canvas.getContext('2d');
+
+    ctx.fillStyle = 'rgb(0,0,0)';
+    ctx.fillRect(0, 0, width, height);
+
+    /**
+     * 画线，绘制一个朝下的等边三角形
+     */
+    // 将角度换算为弧度（JS 基本上只接受弧度值，而人类更习惯用角度值）
+    function degToRad(degrees) {
+        return degrees * Math.PI / 180;
+    }
+
+    // 设置绘制图形为黑色，准备在 (50, 50) 坐标绘制三角形
+    ctx.fillStyle = 'rgb(255, 0, 0)';
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+
+    // 终点坐标为 (150, 50)
+    // 计算三角形的高
+    // 另一终点坐标 (100, 50 + triHeight)
+    // 起点坐标(50, 50)
+    // 绘制线路
+    ctx.lineTo(150, 50);
+    var triHeight = 50 * Math.tan(degToRad(60));
+    ctx.lineTo(100, 50 + triHeight);
+    ctx.lineTo(50, 50);
+    ctx.fill();
+
+    /**
+     * 画圆
+     */
+    // 向画布中添加一条弧
+    // arc() 参数
+    //  ①② 前两个指定圆心的位置坐标
+    //  ③  圆的半径
+    //  ④⑤ 绘制弧的起、止角度
+    //  ⑥  false 是顺时针，true 是逆时针
+    ctx.fillStyle = 'rgb(0, 0, 255)';
+    ctx.beginPath();
+    ctx.arc(150, 106, 50, degToRad(0), degToRad(360), false);
+    ctx.fill();
+
+    // 再来画一条弧
+    ctx.fillStyle = 'yellow';
+    ctx.beginPath();
+    ctx.arc(200, 106, 50, degToRad(-45), degToRad(45), true);
+    // 在调用 fill() 前，绘制了一条终点为圆心的直线
+    ctx.lineTo(200, 106);
+    ctx.fill();
+
+
+</script>
+</body>
+</html>

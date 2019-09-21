@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>启动倒计时</title>
+</head>
+<body>
+<div class="output" style="height: 410px;overflow: auto;"></div>
+
+<script>
+    var output = document.querySelector('.output');
+    output.innerHTML = '';
+
+    var i = 10;
+
+    while (i >= 0) {
+        var para = document.createElement('p');
+        if (i === 10) {
+            para.textContent = 'Countdown ' + i;
+        } else if (i === 0) {
+            para.textContent = 'Blast off!';
+        } else {
+            para.textContent = i;
+        }
+
+        output.appendChild(para);
+
+        i--;
+    }
+</script>
+</body>
+</html>

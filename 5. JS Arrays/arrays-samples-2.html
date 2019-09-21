@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>前5个搜索</title>
+</head>
+<body>
+<!--
+一个假的搜索网站，一个搜索框。
+当在搜索框中输入时，列表中会显示5个先前的搜索字词。
+当列表项目数量超过 5 时，每当新项目被添加到顶部时，最后一个项目开始被删除，因此总是显示5个以前的搜索字词。
+-->
+<div class="output" style="min-height: 150px;">
+
+    <input type="text">
+    <button>Search</button>
+
+    <ul></ul>
+
+</div>
+<script>
+    var list = document.querySelector('.output ul');
+    var searchInput = document.querySelector('.output input');
+    var searchBtn = document.querySelector('.output button');
+
+    list.innerHTML = '';
+
+    var myHistory = [];
+
+    searchBtn.onclick = function () {
+        if (searchInput.value !== '') {
+            myHistory.unshift(searchInput.value);
+
+            list.innerHTML = '';
+
+            for (var i = 0; i < myHistory.length; i++) {
+                var itemText = myHistory[i];
+                var listItem = document.createElement('li');
+                listItem.textContent = itemText;
+                list.appendChild(listItem);
+            }
+
+            if (myHistory.length >= 5) {
+                myHistory.pop();
+            }
+
+            searchInput.value = '';
+            searchInput.focus();
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填写来宾列表</title>
+</head>
+<body>
+<div class="output" style="height: 100px;overflow: auto;">
+    <p class="admitted">Admit: </p>
+    <p class="refused">Refuse: </p>
+</div>
+
+<script>
+    var people = ['Chris', 'Anne', 'Colin', 'Terri', 'Phil', 'Lola', 'Sam', 'Kay', 'Bruce'];
+
+    var admitted = document.querySelector('.admitted');
+    var refused = document.querySelector('.refused');
+
+    var i = 0;
+
+    do {
+        if(people[i] === 'Phil' || people[i] === 'Lola') {
+            refused.textContent += people[i] + ', ';
+        } else {
+            admitted.textContent += people[i] + ', ';
+        }
+        i++;
+    } while(i < people.length);
+
+    refused.textContent = refused.textContent.slice(0,refused.textContent.length-2) + '.';
+    admitted.textContent = admitted.textContent.slice(0,admitted.textContent.length-2) + '.';
+</script>
+</body>
+</html>

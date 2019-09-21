@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Object-oriented JavaScript example</title>
+</head>
+
+<body>
+<p>This example requires you to enter commands in your browser's JavaScript console (see <a
+        href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are
+    browser developer tools</a> for more information).</p>
+
+</body>
+
+<script>
+    var person = {
+        /* property */
+        name : ['ZongHuang', 'Li'],
+        age : 22,
+        gender : 'male',
+        interests : ['music', 'skiing'],
+
+        /* method */
+        bio : function() {
+            alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+        },
+        greeting: function() {
+            alert('Hi! I\'m ' + this.name[0] + '.');
+        }
+    };
+
+    // 设置对象成员 —— 通过声明你要设置的成员
+    person.age = 20;
+    person['name']['last'] = 'Li';
+
+    // 创建新的成员
+    person['eyes'] = 'hazel'
+    person.farewell = function () {
+        alert("Bye everybody!")
+    }
+
+    // 把这个新的成员的名字和值加到 person 对象里
+    person[myDataName] = myDataValue;
+    var myDataName = 'height'
+    var myDataValue = '1.75m'
+    person[myDataName] = myDataValue;
+</script>
+
+<script>
+    // 子命名空间
+    var person1 = {
+        /* property */
+        name : {
+            first : 'Li',
+            last : 'ZongHuang'
+        },
+        age : 22,
+        gender : 'male',
+        interests : ['music', 'skiing'],
+
+        /* method */
+        bio1 : function() {
+            alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+        },
+        greeting1: function() {
+            alert('Hi! I\'m ' + this.name.first + '.');
+        }
+    };
+</script>
+
+<script>
+    var person2 = {
+        /* property */
+        name : {
+            first : 'Li',
+            last : 'ZongHuang'
+        },
+        age : 22,
+        gender : 'male',
+        interests : ['music', 'skiing'],
+
+        /* method */
+        bio2 : function() {
+            alert(person2['name']['first'] + ' ' + person2['name']['last'] + ' is ' + person2['age'] + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+        },
+        greeting2: function() {
+            alert('Hi! I\'m ' + person2['name']['last'] + '.');
+        }
+    };
+</script>
+</html>

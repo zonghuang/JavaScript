@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas Walking Animation</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas class="myCanvas">
+      <p>Add suitable fallback here.</p>
+    </canvas>
+
+    <script>
+
+      var canvas = document.querySelector('.myCanvas');
+      var width = canvas.width = window.innerWidth;
+      var height = canvas.height = window.innerHeight;
+      var ctx = canvas.getContext('2d');
+
+      ctx.fillStyle = 'rgb(0,0,0)';
+      ctx.fillRect(0,0,width,height);
+
+      // 将画布的原点设置为中心点
+      ctx.translate(width/2, height/2);
+
+      // 嵌入图片
+      var image = new Image();
+      image.src = 'walk-right.png';
+      image.onload = draw;
+
+      // 添加一些变量，来追踪精灵图在屏幕上的位置，
+      // 以及当前需要显示的精灵图的序号。
+      var posX = 0;
+      var sprite = 0;
+
+      function draw() {
+        // 清除画布，准备绘制新的帧。
+        // 将矩形左上顶点的坐标设置为 -(width/2), -(height/2)
+        ctx.fillRect(-(width/2), -(height/2), width, height);
+
+        // 使用 drawImage()（9参数版本）来绘制图形
+        ctx.drawImage(image, (sprite*102), 0, 102, 148, 0+posX, -74, 102, 148);
+
+        // 在每帧绘制完毕（部分完毕）后修改 sprite 的值
+        // 意味着每隔 13 帧才更新一次精灵，每秒大约更新 5 帧
+        if (posX % 13 === 0) {
+          if (sprite === 5) {
+            sprite = 0;
+          } else {
+            sprite ++;
+          }
+        }
+
+        // 检测 posX 的值是否超出了 width/2，那意味着角色走到了屏幕右侧边缘。如果这样就计算出一个让角色出现在屏幕左侧边缘的 X 坐标，
+        // 然后将 posX 设置为最接近这个数的 13 的倍数。这里必须限定 13 的倍数这个条件，这是因为 posX 不可能是 13 的倍数，若不限定的话上一段代码就不会运行了。
+        // 如果角色没有走到屏幕边缘，只需为 posX 加 2。这将让他在下次绘制时更靠右些。
+        if (posX > width/2) {
+          newStarPos = -((width/2) + 102);
+          posX = Math.ceil(newStarPos / 13) *13;
+          console.log(posX);
+        } else {
+          posX += 2;
+        }
+
+        // 调用 draw() 函数，以实现动画的循环。
+        window.requestAnimationFrame(draw);
+      }
+
+
+
+    </script>
+  </body>
+</html>
