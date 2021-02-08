@@ -1,0 +1,157 @@
+<!---------- 文本输入框 <input> ---------->
+<!-- 单行文本框 -->
+<input type="text" id="comment" name="comment" value="I'm a text field" />
+
+<!-- E-mail 地址框 -->
+<input type="email" id="email" name="email" multiple />
+
+<!-- 密码框 -->
+<input type="password" id="pwd" name="pwd" />
+
+<!-- 搜索框 -->
+<input type="search" id="search" name="search" />
+
+<!-- 电话号码栏 -->
+<input type="tel" id="tel" name="tel" />
+
+<!-- URL 栏 -->
+<input type="url" id="url" name="url" />
+
+<!---------- 多行文本框 <textarea> ---------->
+<!-- 多行文本框 -->
+<textarea cols="30" rows="10"></textarea>
+
+<!---------- 下拉内容 ---------->
+<!-- 选择框 -->
+<select id="simple" name="simple">
+  <option>Banana</option>
+  <option>Cherry</option>
+  <option>Lemon</option>
+</select>
+
+<!-- <option> 元素也可以嵌套在 <optgroup> 元素中，以创建视觉关联的组值 -->
+<select id="groups" name="groups">
+  <optgroup label="fruits">
+    <option>Banana</option>
+    <option selected>Cherry</option>
+    <option>Lemon</option>
+  </optgroup>
+  <optgroup label="vegetables">
+    <option>Carrot</option>
+    <option>Eggplant</option>
+    <option>Potato</option>
+  </optgroup>
+</select>
+
+<!-- 多选选择框 -->
+<select multiple id="multi" name="multi">
+  <option>Banana</option>
+  <option>Cherry</option>
+  <option>Lemon</option>
+</select>
+
+<!-- 自动补全输入框 -->
+<label for="myFruit">What's your favorite fruit?</label>
+<input type="text" name="myFruit" id="myFruit" list="mySuggestion" />
+<datalist id="mySuggestion">
+  <option>Apple</option>
+  <option>Banana</option>
+  <option>Blackberry</option>
+  <option>Blueberry</option>
+  <option>Lemon</option>
+  <option>Lychee</option>
+  <option>Peach</option>
+  <option>Pear</option>
+</datalist>
+
+<!-- 数据列表支持和后备（浏览器兼容） -->
+<label for="myFruit">What is your favorite fruit? (With fallback)</label>
+<input type="text" id="myFruit" name="fruit" list="fruitList" />
+
+<datalist id="fruitList">
+  <label for="suggestion">or pick a fruit</label>
+  <select id="suggestion" name="altFruit">
+    <option>Apple</option>
+    <option>Banana</option>
+    <option>Blackberry</option>
+    <option>Blueberry</option>
+    <option>Lemon</option>
+    <option>Lychee</option>
+    <option>Peach</option>
+    <option>Pear</option>
+  </select>
+</datalist>
+<!-- 支持 <datalist> 元素的浏览器将忽略所有不是 <option> 元素的元素，并按照预期工作。另一方面，不支持 <datalist> 元素的浏览器将显示标签和选择框。 -->
+
+<!---------- 可选中项 ---------->
+<!-- 复选框 -->
+<input type="checkbox" checked id="carrots" name="carrots" value="carrots" />
+
+<!-- 单选按钮 -->
+<input type="radio" checked id="soup" name="meal" />
+
+<fieldset>
+  <legend>What is your favorite meal?</legend>
+  <ul>
+    <li>
+      <label for="soup">Soup</label>
+      <input type="radio" checked id="soup" name="meal" value="soup" />
+    </li>
+    <li>
+      <label for="curry">Curry</label>
+      <input type="radio" id="curry" name="meal" value="curry" />
+    </li>
+    <li>
+      <label for="pizza">Pizza</label>
+      <input type="radio" id="pizza" name="meal" value="pizza" />
+    </li>
+  </ul>
+</fieldset>
+
+<!---------- 按钮 ---------->
+<!-- 提交、重置、匿名 -->
+<button type="submit">submit button</button>
+<button type="reset">reset button</button>
+<button type="button">anonymous button</button>
+
+<!---------- 高级表单部件 ---------->
+<!-- 数字 -->
+<input type="number" name="age" id="age" min="1" max="10" step="2" />
+
+<!-- 滑块 -->
+<input type="range" name="beans" id="beans" min="0" max="500" step="10" />
+
+<!-- 日期时间选择器 —— 本地时间 -->
+<input type="datetime-local" name="datetime" id="datetime" />
+
+<!-- 日期时间选择器 —— 月 -->
+<input type="month" name="month" id="month" />
+
+<!-- 日期时间选择器 —— 时间 -->
+<input type="time" name="time" id="time" />
+
+<!-- 日期时间选择器 —— 星期 -->
+<input type="week" name="week" id="week" />
+
+<!-- 所有日期和时间控制都可以使用min和max属性来约束 -->
+<label for="myDate">When are you available this summer?</label>
+<input type="date" name="myDate" min="2013-06-01" max="2013-08-31" id="myDate" />
+
+<!-- 拾色器 -->
+<input type="color" name="color" id="color" />
+
+<!---------- 其他小部件 ---------->
+<!-- 文件选择器 -->
+<input type="file" name="file" id="file" accept="image/*" multiple />
+
+<!-- 隐藏内容 -->
+<input type="hidden" id="timestamp" name="timestamp" value="1286705410" />
+
+<!-- 图像按钮 -->
+<input type="image" alt="Click me!" src="my-img.png" width="80" height="30" />
+
+<!-- 进度条 -->
+<progress max="100" value="75">75/100</progress>
+
+<!-- 仪表 -->
+<meter min="0" max="100" value="75" low="33" high="66" optimum="50">75</meter>

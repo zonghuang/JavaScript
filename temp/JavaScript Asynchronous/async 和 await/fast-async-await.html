@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Demonstration of fast async/await</title>
+  </head>
+  <body>
+    <script>
+      // Define custom promise function
+      // 所用时间(毫秒):3008
+      // 在这里，我们将三个Promise对象存储在变量中，这样可以同时启动它们关联的进程。
+      // 接下来，我们等待他们的结果 - 因为promise都在基本上同时开始处理，promise将同时完成;
+
+      function timeoutPromise(interval) {
+        return new Promise((resolve, reject) => {
+          setTimeout(function () {
+            resolve("done");
+          }, interval);
+        });
+      }
+
+      async function timeTest() {
+        const timeoutPromise1 = timeoutPromise(3000);
+        const timeoutPromise2 = timeoutPromise(3000);
+        const timeoutPromise3 = timeoutPromise(3000);
+
+        await timeoutPromise1;
+        await timeoutPromise2;
+        await timeoutPromise3;
+      }
+
+      let startTime = Date.now();
+      timeTest().then(() => {
+        let finishTime = Date.now();
+        let timeTaken = finishTime - startTime;
+        alert("Time taken in milliseconds: " + timeTaken);
+      });
+    </script>
+  </body>
+</html>
